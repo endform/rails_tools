@@ -7,7 +7,7 @@ def filter(http_method, action, status=nil)
 
   printing = false
   buffer = ''
-  IO.foreach('pm_cut.log') { |line|
+  IO.foreach(ARGV[0]) { |line|
     if line.start_with?("Started #{http_method}") && line.match(action)
       printing = true
       buffer = ''
